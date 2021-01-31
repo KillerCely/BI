@@ -33,11 +33,62 @@ yt = np.transpose(m)
 print ("\n Transpose M: \n" , yt)
 yt2 = np.asmatrix(m1).T
 print ("\n Transpose M2: \n" , yt2)
-print("\n Add Columns and rows into M and M2: \n")
+#print("\n Add Columns and rows into M and M2: \n")
 #p = np.linspace(1, 100, n) #first generate another arrays to add, with random values
 #m1 = np.append(m, p, axis=1)
 #m4 = np.column_stack((m1,p))
 #print ("New matrix M: \n" , m)
 #print ("\n New matrix M2: \n" , m1)
 
-#Prueba
+#Exercise 2:
+#2.1
+import pandas as pd
+print ("Ejercicio 2: Pandas")
+data = {'Name': ['Alexander' , 'Jane'], 'Age': [19,36] , 'Sex': ['male' , 'female'] , 'profession':['student', 'physician']}
+data1 = {'Name': ['Eric' , 'Laura'], 'Age': [22,48] , 'Sex': ['male' , 'female'] , 'profession':['lawyer', 'teacher']}
+data2 = {'Name': ['Peter' , 'Julia'], 'Age': [31,24] , 'Sex': ['male' , 'female'] , 'profession':['engineer', 'consultant']}
+
+df = pd.DataFrame(data)
+df1 = pd.DataFrame(data1)
+df2 = pd.DataFrame(data2)
+print (df)
+print ("\n" ,df1)
+print ("\n" ,df2)
+
+#2.2
+print ("\n Union of three")
+dfc = pd.concat([df, df1, df2])
+print ("\n", dfc)
+
+#2.3
+print ("\n new dataframe")
+data3 = {'Name':['Alexander', 'Jane', 'Eric', 'Laura', 'Peter', 'Julia'],
+        'Size':[181,162,178,183,173,169],
+        'Salary':[600,4200,4000,3400,5200,3600]}
+df4= pd.DataFrame(data3)
+dff= pd.merge(dfc, df4, on='Name', how='outer')
+print ("\n", dff)
+
+#2.4
+print("\n Ajust Size on the dataframe")
+dff['Size']=dff['Size'].apply(lambda x: x-1)
+print("\n" ,dff)
+
+#2.5
+print ("\n Mayores a 30 años: ")
+print ("\n Using a funtion Loc")
+print ("\n" , dff.loc[dff['Age']>30])
+print ("\n Using a Condicional")
+dffc=list(filter(lambda x: x>30, dff['Age']))
+print("\n" , dffc) #Aqui falta corregir xd
+
+#2.6
+print("\n Order by Salary")
+dff.sort_values(by=['Salary'])
+print("\n", dff)
+
+#2.7
+print("\n Group of people according the sex: ")
+dfg = dff.groupby('Sex')
+print ("\n" , dfg.get_group('female'))
+print ("\n" , dfg.get_group('male'))
