@@ -34,7 +34,7 @@ print ("\n Transpose M: \n" , yt)
 yt2 = np.asmatrix(m1).T
 print ("\n Transpose M2: \n" , yt2)
 print("\n Add Columns and rows into M and M2: \n")
-#p = np.linspace(1, 100, n) #first generate another arrays to add, with random values
+p = np.linspace(1, 100, n) #first generate another arrays to add, with random values
 #m1 = np.append(m, p, axis=1)
 #m4 = np.column_stack((m1,p))
 #print ("New matrix M: \n" , m)
