@@ -49,7 +49,7 @@ for i in range (3):
                     ax[i,j].scatter(IrisCVS_readerR[IrisCVS_readerR['species']==species[n]].sepal_length,IrisCVS_readerR[IrisCVS_readerR['species']==species[n]].petal_width,
                                 s=10,c=colors[n])
                 else:
-                    ax[i,j].scatter(IrisCVS_readerR[IrisCVS_readerR['species']==species[n]].petal_length,IrisCVS_readerR[IrisCVS_readerR['species']==species[n]].petal_width,                                
+                    ax[i,j].scatter(IrisCVS_readerR[IrisCVS_readerR['species']==species[n]].petal_length,IrisCVS_readerR[IrisCVS_readerR['species']==species[n]].petal_width,
                                 s=10,c=colors[n])
 
 
@@ -83,3 +83,14 @@ Mplt.show()
 
 
 print("---------Secciones 5 -------------")
+
+
+from mpl_toolkits import mplot3d
+fig = Mplt.figure()
+ax = Mplt.axes(projection='3d')
+
+
+
+
+ax.scatter3D(IrisCVS_readerR['sepal_length'], IrisCVS_readerR['sepal_width'], cmap='Greens');
+Mplt.show()
