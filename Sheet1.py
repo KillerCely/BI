@@ -33,17 +33,20 @@ yt = np.transpose(m)
 print ("\n Transpose M: \n" , yt)
 yt2 = np.asmatrix(m1).T
 print ("\n Transpose M2: \n" , yt2)
-#print("\n Add Columns and rows into M and M2: \n")
-#p = np.linspace(1, 100, n) #first generate another arrays to add, with random values
-#m1 = np.append(m, p, axis=1)
-#m4 = np.column_stack((m1,p))
-#print ("New matrix M: \n" , m)
-#print ("\n New matrix M2: \n" , m1)
+print("\n Add Columns and rows into M and M2: \n")
+p = np.linspace(1, 100, n)#first generate another arrays to add, with random values
+print("\n" , p)
+m1 = np.row_stack((m1, p))
+print ("\n New row for m2: \n " , m1)
+pt=np.transpose(p) #saco la transpuesta
+m=np.column_stack((m, pt))
+print ("\n New columns for m: \n", m)
+
 
 #Exercise 2:
 #2.1
 import pandas as pd
-print ("Ejercicio 2: Pandas")
+print ("\n Ejercicio 2: Pandas \n ")
 data = {'Name': ['Alexander' , 'Jane'], 'Age': [19,36] , 'Sex': ['male' , 'female'] , 'profession':['student', 'physician']}
 data1 = {'Name': ['Eric' , 'Laura'], 'Age': [22,48] , 'Sex': ['male' , 'female'] , 'profession':['lawyer', 'teacher']}
 data2 = {'Name': ['Peter' , 'Julia'], 'Age': [31,24] , 'Sex': ['male' , 'female'] , 'profession':['engineer', 'consultant']}
